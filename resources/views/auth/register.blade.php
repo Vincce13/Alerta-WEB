@@ -175,6 +175,7 @@
     </style>
 </head>
 <body>
+    
     <a href="javascript:history.back()" class="back-button">
         &#8592;
     </a>
@@ -185,18 +186,19 @@
         </div>
         <div class="right-section">
             <h2>Registration</h2>
-            <form>
+            <form method="POST" action="{{url('/register')}}" >
+                @csrf
                 <div class="form-group">
-                    <label for="email">E-mail</label>
-                    <input type="email" id="email" placeholder="Enter your email">
+                    <label for="Name" :value="__('Name')">Name</label>
+                    <input type="text" id="name" placeholder="Enter your name" :value="old('name')">
                 </div>
                 <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" placeholder="Enter your password">
+                    <label for="Email" :value="__('Email')">Email</label>
+                    <input type="email" id="email" placeholder="Enter your email" :value="old('email')">
                 </div>
                 <div class="form-group">
-                    <label for="confirm-password">Confirm Password</label>
-                    <input type="password" id="confirm-password" placeholder="Confirm your password">
+                    <label for="Password" :value="__('Password')"> Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" :value="old('password')">
                 </div>
                 <button type="submit" class="btn">Register</button>
                 <div class="signin-link">
